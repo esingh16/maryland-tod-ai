@@ -583,7 +583,7 @@ elif page == "⚖️ AI Feature 3: Equity Recommender":
         emp_long = load_emp_sector()
 
         latest_qcew = qcew[qcew["Year"] == qcew["Year"].max()]
-        county_emp  = latest_qcew.groupby("County")[["Total","Total Private","Government"]].sum().reset_index()
+        county_emp  = latest_qcew.groupby("County")[["Total","Total Private","Public Administration"]].sum().reset_index()
         county_emp  = county_emp[county_emp["County"] != "Statewide"].copy()
         county_emp["Total"] = pd.to_numeric(county_emp["Total"], errors="coerce").fillna(0)
         county_emp["Total Private"] = pd.to_numeric(county_emp["Total Private"], errors="coerce").fillna(0)
