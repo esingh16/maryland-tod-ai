@@ -34,44 +34,50 @@ st.set_page_config(
 # Fix white-on-white: dark background with white text
 st.markdown("""
 <style>
-[data-testid="stAppViewContainer"] {
-    background-color: #1a1a2e;
-}
-[data-testid="stSidebar"] {
-    background-color: #16213e;
-}
-[data-testid="stSidebar"] * {
-    color: #e0e0e0 !important;
-}
-.main .block-container {
-    background-color: #1a1a2e;
-    color: #f0f0f0;
-}
-h1, h2, h3, p, li, label, div {
-    color: #f0f0f0 !important;
-}
+/* App background */
+[data-testid="stAppViewContainer"] { background-color: #1a1a2e; }
+[data-testid="stSidebar"] { background-color: #16213e; }
+
+/* Sidebar text only */
+[data-testid="stSidebar"] p,
+[data-testid="stSidebar"] span,
+[data-testid="stSidebar"] label,
+[data-testid="stSidebar"] div:not([class*="plotly"]),
+[data-testid="stSidebar"] .stMarkdown { color: #e0e0e0 !important; }
+
+/* Main area text */
+.main .block-container h1,
+.main .block-container h2,
+.main .block-container h3 { color: #f0f0f0 !important; }
+.main .block-container p,
+.main .block-container li { color: #e0e0e0 !important; }
+
+/* Metrics */
 .stMetric label { color: #9EC3C7 !important; }
-.stMetric [data-testid="metric-container"] { 
-    background-color: #16213e; 
+.stMetric [data-testid="metric-container"] {
+    background-color: #16213e;
     border: 1px solid #4E7D82;
     border-radius: 8px;
     padding: 10px;
 }
 .stMetric [data-testid="stMetricValue"] { color: #C8A436 !important; }
-.stDataFrame { background-color: #16213e; }
+
+/* Tabs */
 .stTabs [data-baseweb="tab"] { color: #9EC3C7 !important; }
-.stTabs [aria-selected="true"] { 
+.stTabs [aria-selected="true"] {
     border-bottom: 3px solid #C8A436 !important;
     color: #C8A436 !important;
 }
 .stRadio label { color: #e0e0e0 !important; }
+
+/* Winner badge */
 .winner-badge {
     background: linear-gradient(135deg, #C8A436, #902E28);
     color: white; padding: 10px 18px; border-radius: 20px;
     font-weight: bold; display: inline-block; margin-bottom: 12px;
     font-size: 13px;
 }
-.stSpinner { color: #9EC3C7 !important; }
+/* DO NOT force color on svg/canvas — plotly handles its own text */
 </style>
 """, unsafe_allow_html=True)
 
@@ -112,37 +118,14 @@ def load_marc_v2():
 
 @st.cache_data
 def load_aadt_points():
+    # Load only the columns we need — avoids any rename conflicts
+    needed = ["the_geom", "County Name", "Road Name", "Rural / Urban", "AADT Current"]
     df = pd.read_csv(DATA + "Annual_Average_Daily_Traffic_-_MDOT_SHA_Statewide_AADT_Points.csv",
-                     low_memory=False)
-    if "the_geom" in df.columns:
-        df["lat"], df["lon"] = zip(*df["the_geom"].apply(parse_point))
-    col_map = {}
-    for c in df.columns:
-        if "AADT" in c and "Current" in c and "AAWDT" not in c:
-            col_map[c] = "AADT Current"
-        if "Car" in c and "AADT" in c:
-            col_map[c] = "AADT Car"
-        if "Bus" in c and "AADT" in c:
-            col_map[c] = "AADT Bus"
-        if "Rural" in c:
-            col_map[c] = "Rural / Urban"
-        if "County" in c and "Name" in c:
-            col_map[c] = "County Name"
-        if "Road" in c and "Name" in c:
-            col_map[c] = "Road Name"
-    df = df.rename(columns=col_map)
-    # "AADT Current" exists directly in this file
-    if "AADT Current" not in df.columns:
-        df["AADT Current"] = 0
-    else:
-        df["AADT Current"] = pd.to_numeric(df["AADT Current"], errors="coerce").fillna(0)
-    if "Rural / Urban" not in df.columns:
-        df["Rural / Urban"] = "Urban"
-    if "County Name" not in df.columns:
-        df["County Name"] = "Unknown"
-    if "Road Name" not in df.columns:
-        df["Road Name"] = "Unknown"
+                     usecols=needed, low_memory=False)
+    df["lat"], df["lon"] = zip(*df["the_geom"].apply(parse_point))
+    df["AADT Current"] = pd.to_numeric(df["AADT Current"], errors="coerce").fillna(0)
     df = df.dropna(subset=["lat", "lon"])
+    df = df[df["lat"].between(37.5, 40.5) & df["lon"].between(-80.0, -74.5)]
     return df
 
 @st.cache_data
@@ -441,8 +424,8 @@ elif page == "🤖 AI Feature 1: Corridor Scoring":
             barmode='stack', height=680,
             plot_bgcolor=CRM, paper_bgcolor='white',
             font=dict(family='Arial', size=10, color='#333333'),
-            xaxis=dict(title='AI Investment Score (0–100)', range=[0, 115], gridcolor='#e0e0e0'),
-            yaxis=dict(tickfont=dict(size=9)),
+            xaxis=dict(title='AI Investment Score (0–100)', range=[0, 115], gridcolor='#e0e0e0', tickfont=dict(color='#333333'), title_font=dict(color='#333333')),
+            yaxis=dict(tickfont=dict(size=9, color='#333333')),
             legend=dict(orientation='h', yanchor='bottom', y=1.02, xanchor='center', x=0.5,
                         bgcolor='rgba(255,252,232,0.9)', bordercolor=TM, borderwidth=1),
             margin=dict(l=260, r=60),
@@ -462,7 +445,7 @@ elif page == "🤖 AI Feature 1: Corridor Scoring":
         fig_pca.update_layout(
             height=540, plot_bgcolor=CRM, paper_bgcolor='white',
             font=dict(family='Arial', size=11, color='#333333'),
-            xaxis=dict(gridcolor='#e0e0e0'), yaxis=dict(gridcolor='#e0e0e0'),
+            xaxis=dict(gridcolor='#e0e0e0', tickfont=dict(color='#333333'), title_font=dict(color='#333333')), yaxis=dict(gridcolor='#e0e0e0', tickfont=dict(color='#333333'), title_font=dict(color='#333333')),
             legend=dict(orientation='h', yanchor='bottom', y=1.04, xanchor='center', x=0.5,
                         bgcolor='rgba(255,252,232,0.9)', bordercolor=TM, borderwidth=1),
         )
@@ -877,7 +860,7 @@ elif page == "⚖️ AI Feature 3: Equity Recommender":
             title='<b>AI Equity Recommender — Maryland County Rankings</b><br>'
                   '<sup>Cosine similarity to ideal high-need profile | QCEW sector data</sup>',
             barmode='stack', height=640,
-            xaxis=dict(title='Equity Impact Score (0–100)', range=[0, 115], gridcolor='#e0e0e0'),
+            xaxis=dict(title='Equity Impact Score (0–100)', range=[0, 115], gridcolor='#e0e0e0', tickfont=dict(color='#333333'), title_font=dict(color='#333333')),
             plot_bgcolor=CRM, paper_bgcolor='white',
             font=dict(family='Arial', size=11, color='#333333'),
             legend=dict(orientation='h', yanchor='bottom', y=1.02, xanchor='center', x=0.5,
@@ -916,7 +899,7 @@ elif page == "⚖️ AI Feature 3: Equity Recommender":
             title='<b>Worker Sector Composition — Top 8 Equity Counties</b>',
             barmode='stack', height=480, plot_bgcolor=CRM, paper_bgcolor='white',
             yaxis=dict(title='Workers (thousands)', gridcolor='#e0e0e0'),
-            xaxis=dict(tickangle=-20),
+            xaxis=dict(tickangle=-20, tickfont=dict(color='#333333')),
             font=dict(family='Arial', size=11),
             legend=dict(orientation='h', yanchor='bottom', y=1.04, xanchor='center', x=0.5,
                         bgcolor='rgba(255,252,232,0.9)', bordercolor=TM, borderwidth=1),
