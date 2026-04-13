@@ -253,7 +253,7 @@ if page == "🏠 Overview":
                 name=m, line=dict(color=colors_m[i], width=2.5), mode="lines+markers"))
         fig.update_layout(height=320, margin=dict(t=20, b=20),
                           plot_bgcolor='#FFFCE8', paper_bgcolor="white",
-                          font=dict(family="Arial", size=10, color='#222222'),
+                          font=dict(family="Arial", size=10, color='#111111'),
                           yaxis_title="Trips/Revenue Mile",
                           legend=dict(orientation="h", y=1.1, x=0.5, xanchor="center"))
         st.plotly_chart(fig, use_container_width=True)
@@ -268,7 +268,7 @@ if page == "🏠 Overview":
         fig2.add_trace(go.Scatter(x=df_m["Fiscal Year"], y=df_m[m],
             name=m, line=dict(color=colors_m[i], width=2.5)))
     fig2.update_layout(height=300, plot_bgcolor='#FFFCE8', paper_bgcolor="white",
-                       font=dict(family='Arial', size=10, color='#222222'),
+                       font=dict(family='Arial', size=10, color='#111111'),
                        yaxis_title="On-Time %", margin=dict(t=20, b=20),
                        legend=dict(orientation="h", y=1.1, x=0.5, xanchor="center"))
     st.plotly_chart(fig2, use_container_width=True)
@@ -410,9 +410,9 @@ elif page == "🤖 AI Feature 1: Corridor Scoring":
                   '<sup>Weighted ML score across 12 features | Real MARC ridership data | Sphinx Loop top-ranked</sup>',
             barmode='stack', height=680,
             plot_bgcolor='#FFFCE8', paper_bgcolor='white',
-            font=dict(family='Arial', size=10, color='#222222'),
-            xaxis=dict(title='AI Investment Score (0–100)', range=[0, 115], gridcolor='#e0e0e0', tickfont=dict(color='#222222'), title_font=dict(color='#222222')),
-            yaxis=dict(tickfont=dict(size=9, color='#222222')),
+            font=dict(family='Arial', size=10, color='#111111'),
+            xaxis=dict(title='AI Investment Score (0–100)', range=[0, 115], gridcolor='#e0e0e0', tickfont=dict(color='#111111'), title_font=dict(color='#111111')),
+            yaxis=dict(tickfont=dict(size=9, color='#111111')),
             legend=dict(orientation='h', yanchor='bottom', y=1.02, xanchor='center', x=0.5,
                         bgcolor='rgba(255,255,255,0.95)', bordercolor=TM, borderwidth=1),
             margin=dict(l=260, r=60),
@@ -431,8 +431,8 @@ elif page == "🤖 AI Feature 1: Corridor Scoring":
         fig_pca.update_traces(textposition='top center', textfont=dict(size=7))
         fig_pca.update_layout(
             height=540, plot_bgcolor='#FFFCE8', paper_bgcolor='white',
-            font=dict(family='Arial', size=11, color='#222222'),
-            xaxis=dict(gridcolor='#e0e0e0', tickfont=dict(color='#222222'), title_font=dict(color='#222222')), yaxis=dict(gridcolor='#e0e0e0', tickfont=dict(color='#222222'), title_font=dict(color='#222222')),
+            font=dict(family='Arial', size=11, color='#111111'),
+            xaxis=dict(gridcolor='#e0e0e0', tickfont=dict(color='#111111'), title_font=dict(color='#111111')), yaxis=dict(gridcolor='#e0e0e0', tickfont=dict(color='#111111'), title_font=dict(color='#111111')),
             legend=dict(orientation='h', yanchor='bottom', y=1.04, xanchor='center', x=0.5,
                         bgcolor='rgba(255,255,255,0.95)', bordercolor=TM, borderwidth=1),
         )
@@ -461,11 +461,11 @@ elif page == "🤖 AI Feature 1: Corridor Scoring":
                 fillcolor=f'rgba({r},{g},{b},0.15)',
             ))
         fig_radar.update_layout(
-            polar=dict(radialaxis=dict(visible=True, range=[0, 100], tickfont=dict(size=9, color='#222222'), gridcolor='#ddd'),
-                       angularaxis=dict(tickfont=dict(size=10, color='#222222'))),
+            polar=dict(radialaxis=dict(visible=True, range=[0, 100], tickfont=dict(size=9, color='#111111'), gridcolor='#ddd'),
+                       angularaxis=dict(tickfont=dict(size=10, color='#111111'))),
             title='<b>Feature Profile — Top 3 Corridors</b><br>'
                   '<sup>Higher = more important | Real MARC data anchors MARC Ridership axis</sup>',
-            height=500, paper_bgcolor='white', font=dict(family='Arial', size=11, color='#222222'),
+            height=500, paper_bgcolor='white', font=dict(family='Arial', size=11, color='#111111'),
             legend=dict(orientation='h', yanchor='bottom', y=-0.08, xanchor='center', x=0.5),
         )
         st.plotly_chart(fig_radar, use_container_width=True)
@@ -481,7 +481,7 @@ elif page == "🤖 AI Feature 1: Corridor Scoring":
         fig_eff.update_traces(textposition='top center', textfont=dict(size=7))
         fig_eff.update_layout(
             height=520, plot_bgcolor='#FFFCE8', paper_bgcolor='white',
-            font=dict(family='Arial', size=11, color='#222222'),
+            font=dict(family='Arial', size=11, color='#111111'),
             xaxis=dict(title='Estimated Cost ($M)', gridcolor='#e0e0e0'),
             yaxis=dict(title='AI Score (0–100)', gridcolor='#e0e0e0'),
             legend=dict(orientation='h', yanchor='bottom', y=1.04, xanchor='center', x=0.5,
@@ -580,15 +580,18 @@ elif page == "📈 AI Feature 2: Demand Forecasting":
                              annotation_text=f'Target {targets[mode]}',
                              annotation_font_size=8, row=1, col=col_idx)
         fig_fc.update_layout(
+    title_font=dict(color='#111111'),
+    
             title='<b>AI Ridership Forecast — MARC · Metro · Core Bus</b><br>'
                   '<sup>Polynomial regression | 95% CI shaded | Colors match network maps</sup>',
             height=440, plot_bgcolor='#FFFCE8', paper_bgcolor='white',
-            font=dict(family='Arial', size=10, color='#222222'),
+            font=dict(family='Arial', size=10, color='#111111'),
             legend=dict(orientation='h', yanchor='bottom', y=1.04, xanchor='center', x=0.5,
                         bgcolor='rgba(255,255,255,0.95)', bordercolor=TM, borderwidth=1),
         )
-        fig_fc.update_xaxes(gridcolor='#e0e0e0', dtick=2)
-        fig_fc.update_yaxes(gridcolor='#e0e0e0')
+        fig_fc.update_annotations(font=dict(color='#111111'))
+        fig_fc.update_xaxes(gridcolor='#e0e0e0', tickfont=dict(color='#111111'), title_font=dict(color='#111111'), dtick=2)
+        fig_fc.update_yaxes(gridcolor='#e0e0e0', tickfont=dict(color='#111111'), title_font=dict(color='#111111'))
         st.plotly_chart(fig_fc, use_container_width=True)
 
     with tab2:
@@ -636,15 +639,18 @@ elif page == "📈 AI Feature 2: Demand Forecasting":
                 line=dict(color=TM, width=2, dash='dot')
             ), row=1, col=2)
         fig_emp_d.update_layout(
+    title_font=dict(color='#111111'),
+    
             title=f'<b>Employment-Driven Demand Model — 2006–2035</b><br>'
                   f'<sup>Real BLS data | MARC R²={r2_val:.2f} | TOD adds ~3%/yr uplift</sup>',
             height=440, plot_bgcolor='#FFFCE8', paper_bgcolor='white',
-            font=dict(family='Arial', size=10, color='#222222'),
+            font=dict(family='Arial', size=10, color='#111111'),
             legend=dict(orientation='h', yanchor='bottom', y=1.04, xanchor='center', x=0.5,
                         bgcolor='rgba(255,255,255,0.95)', bordercolor=TM, borderwidth=1),
         )
-        fig_emp_d.update_yaxes(gridcolor='#e0e0e0')
-        fig_emp_d.update_xaxes(gridcolor='#e0e0e0')
+        fig_emp_d.update_annotations(font=dict(color='#111111'))
+        fig_emp_d.update_yaxes(gridcolor='#e0e0e0', tickfont=dict(color='#111111'), title_font=dict(color='#111111'), tickfont=dict(color='#111111'), title_font=dict(color='#111111'))
+        fig_emp_d.update_xaxes(gridcolor='#e0e0e0', tickfont=dict(color='#111111'), title_font=dict(color='#111111'))
         st.plotly_chart(fig_emp_d, use_container_width=True)
         st.success(f"R² = {r2_val:.3f} — employment explains {r2_val*100:.1f}% of MARC ridership variance.")
 
@@ -692,10 +698,10 @@ elif page == "📈 AI Feature 2: Demand Forecasting":
             title=f'<b>Monte Carlo Financial Risk Model — {N:,} Scenarios</b><br>'
                   f'<sup>Median Yr5: ${p50:.0f}M | 90% CI: ${p5:.0f}M–${p95:.0f}M | Sphinx Loop premium included</sup>',
             height=440, plot_bgcolor='#FFFCE8', paper_bgcolor='white',
-            font=dict(family='Arial', size=11, color='#222222'), showlegend=False,
+            font=dict(family='Arial', size=11, color='#111111'), showlegend=False,
         )
-        fig_mc.update_xaxes(gridcolor='#e0e0e0')
-        fig_mc.update_yaxes(gridcolor='#e0e0e0')
+        fig_mc.update_xaxes(gridcolor='#e0e0e0', tickfont=dict(color='#111111'), title_font=dict(color='#111111'))
+        fig_mc.update_yaxes(gridcolor='#e0e0e0', tickfont=dict(color='#111111'), title_font=dict(color='#111111'))
         st.plotly_chart(fig_mc, use_container_width=True)
 
     with tab4:
@@ -725,10 +731,10 @@ elif page == "📈 AI Feature 2: Demand Forecasting":
         fig_fan.update_layout(
             title='<b>Ridership Scenario Fan — 36 Month Ramp</b><br>'
                   '<sup>5 scenarios | Base+Sphinx adds 8K riders | S-curve adoption model</sup>',
-            xaxis=dict(title='Month of Operation', gridcolor='#e0e0e0', dtick=3),
-            yaxis=dict(title='Daily New Riders', gridcolor='#e0e0e0', tickformat=','),
+            xaxis=dict(title='Month of Operation', gridcolor='#e0e0e0', dtick=3, tickfont=dict(color='#111111'), title_font=dict(color='#111111')),
+            yaxis=dict(title='Daily New Riders', gridcolor='#e0e0e0', tickformat=',', tickfont=dict(color='#111111'), title_font=dict(color='#111111')),
             height=440, plot_bgcolor='#FFFCE8', paper_bgcolor='white',
-            font=dict(family='Arial', size=12, color='#222222'),
+            font=dict(family='Arial', size=12, color='#111111'),
             legend=dict(orientation='h', yanchor='bottom', y=1.04, xanchor='center', x=0.5,
                         bgcolor='rgba(255,255,255,0.95)', bordercolor=TM, borderwidth=1),
             hovermode='x unified',
@@ -847,9 +853,9 @@ elif page == "⚖️ AI Feature 3: Equity Recommender":
             title='<b>AI Equity Recommender — Maryland County Rankings</b><br>'
                   '<sup>Cosine similarity to ideal high-need profile | QCEW sector data</sup>',
             barmode='stack', height=640,
-            xaxis=dict(title='Equity Impact Score (0–100)', range=[0, 115], gridcolor='#e0e0e0', tickfont=dict(color='#222222'), title_font=dict(color='#222222')),
+            xaxis=dict(title='Equity Impact Score (0–100)', range=[0, 115], gridcolor='#e0e0e0', tickfont=dict(color='#111111'), title_font=dict(color='#111111')),
             plot_bgcolor='#FFFCE8', paper_bgcolor='white',
-            font=dict(family='Arial', size=11, color='#222222'),
+            font=dict(family='Arial', size=11, color='#111111'),
             legend=dict(orientation='h', yanchor='bottom', y=1.02, xanchor='center', x=0.5,
                         bgcolor='rgba(255,255,255,0.95)', bordercolor=TM, borderwidth=1),
             margin=dict(l=180, r=80),
@@ -886,8 +892,8 @@ elif page == "⚖️ AI Feature 3: Equity Recommender":
             title='<b>Worker Sector Composition — Top 8 Equity Counties</b>',
             barmode='stack', height=480, plot_bgcolor='#FFFCE8', paper_bgcolor='white',
             yaxis=dict(title='Workers (thousands)', gridcolor='#e0e0e0'),
-            xaxis=dict(tickangle=-20, tickfont=dict(color='#222222')),
-            font=dict(family='Arial', size=11, color='#222222'),
+            xaxis=dict(tickangle=-20, tickfont=dict(color='#111111')),
+            font=dict(family='Arial', size=11, color='#111111'),
             legend=dict(orientation='h', yanchor='bottom', y=1.04, xanchor='center', x=0.5,
                         bgcolor='rgba(255,255,255,0.95)', bordercolor=TM, borderwidth=1),
         )
@@ -912,9 +918,9 @@ elif page == "⚖️ AI Feature 3: Equity Recommender":
         fig_quad.update_traces(textposition='top center', textfont=dict(size=9))
         fig_quad.update_layout(
             height=540, plot_bgcolor='#FFFCE8', paper_bgcolor='white',
-            font=dict(family='Arial', size=11, color='#222222'),
-            xaxis=dict(tickformat='.0%', gridcolor='#e0e0e0'),
-            yaxis=dict(tickformat='.0%', gridcolor='#e0e0e0'),
+            font=dict(family='Arial', size=11, color='#111111'),
+            xaxis=dict(tickformat='.0%', gridcolor='#e0e0e0', tickfont=dict(color='#111111'), title_font=dict(color='#111111')),
+            yaxis=dict(tickformat='.0%', gridcolor='#e0e0e0', tickfont=dict(color='#111111'), title_font=dict(color='#111111')),
             legend=dict(orientation='h', yanchor='bottom', y=1.04, xanchor='center', x=0.5,
                         bgcolor='rgba(255,255,255,0.95)', bordercolor=TM, borderwidth=1),
         )
@@ -1125,8 +1131,8 @@ elif page == "⚠️ AI Feature 4: Conflict Detection":
             title='<b>🤖 AI Conflict Detector — Construction Conflicts per Route</b><br>'
                   f'<sup>Agent scanned {sum(len(r["waypoints"]) for r in routes.values())} waypoints against {len(aadt):,} MDOT traffic data points</sup>',
             barmode='stack', height=420, plot_bgcolor='#f5f5f5', paper_bgcolor='white',
-            yaxis=dict(title='Number of Conflict Points', gridcolor='#f0f0f0'),
-            font=dict(family='Arial', size=12, color='#222222'),
+            yaxis=dict(title='Number of Conflict Points', gridcolor='#f0f0f0', tickfont=dict(color='#111111'), title_font=dict(color='#111111')),
+            font=dict(family='Arial', size=12, color='#111111'),
             legend=dict(orientation='h', yanchor='top', y=-0.15, xanchor='center', x=0.5),
         )
         st.plotly_chart(fig_conf, use_container_width=True)
@@ -1211,10 +1217,10 @@ elif page == "⚠️ AI Feature 4: Conflict Detection":
         fig_timeline.update_layout(
             title='<b>Construction Risk Timeline — Monthly Risk Score Over 4 Years</b><br>'
                   '<sup>AI agent projects when conflict risk is highest | Phase overlaps = compounded risk</sup>',
-            xaxis=dict(title='Project Month', dtick=6, gridcolor='#f0f0f0'),
-            yaxis=dict(title='Aggregate Risk Score', gridcolor='#f0f0f0', range=[0, 10]),
+            xaxis=dict(title='Project Month', dtick=6, gridcolor='#f0f0f0', tickfont=dict(color='#111111'), title_font=dict(color='#111111')),
+            yaxis=dict(title='Aggregate Risk Score', gridcolor='#f0f0f0', range=[0, 10], tickfont=dict(color='#111111'), title_font=dict(color='#111111')),
             height=440, plot_bgcolor='#f5f5f5', paper_bgcolor='white',
-            font=dict(family='Arial', size=12, color='#222222'), showlegend=False,
+            font=dict(family='Arial', size=12, color='#111111'), showlegend=False,
         )
         st.plotly_chart(fig_timeline, use_container_width=True)
 
@@ -1249,7 +1255,7 @@ elif page == "⚠️ AI Feature 4: Conflict Detection":
             )])
             fig_table.update_layout(
                 title='<b>🤖 AI-Generated Mitigation Action Plan — Top 15 Conflicts</b>',
-                height=520, paper_bgcolor='white', font=dict(family='Arial', color='#222222'),
+                height=520, paper_bgcolor='white', font=dict(family='Arial', color='#111111'),
             )
             st.plotly_chart(fig_table, use_container_width=True)
         else:
@@ -1288,6 +1294,6 @@ elif page == "⚠️ AI Feature 4: Conflict Detection":
         fig_gauge.update_layout(
             title='<b>🤖 Agent Route Ease Score — Higher = Fewer Conflicts</b><br>'
                   '<sup>Green zone (70+) = proceed | Yellow = mitigate | Red = redesign</sup>',
-            height=320, paper_bgcolor='white', font=dict(family='Arial', size=10, color='#222222'),
+            height=320, paper_bgcolor='white', font=dict(family='Arial', size=10, color='#111111'),
         )
         st.plotly_chart(fig_gauge, use_container_width=True)
