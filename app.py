@@ -72,7 +72,7 @@ def parse_multipoly_centroid(geom):
     return None, None
 
 # ── Data loading (cached) ──────────────────────────────────────────────────
-DATA = "/mnt/user-data/uploads/"
+DATA = "./"
 
 @st.cache_data
 def load_marc():
