@@ -432,7 +432,7 @@ elif page == "🤖 AI Feature 1: Corridor Scoring":
         fig_pca.update_layout(
             height=540, plot_bgcolor='#FFFCE8', paper_bgcolor='white',
             font=dict(family='Arial', size=11, color='#111111'),
-            xaxis=dict(gridcolor='#e0e0e0', tickfont=dict(color='#111111'), title_font=dict(color='#111111')), yaxis=dict(gridcolor='#e0e0e0', tickfont=dict(color='#111111'), title_font=dict(color='#111111')),
+            xaxis=dict(gridcolor='#e0e0e0', tickfont=dict(color='#111111'), title_font=dict(color='#111111')), yaxis=dict(gridcolor='#e0e0e0'),
             legend=dict(orientation='h', yanchor='bottom', y=1.04, xanchor='center', x=0.5,
                         bgcolor='rgba(255,255,255,0.95)', bordercolor=TM, borderwidth=1),
         )
@@ -649,7 +649,7 @@ elif page == "📈 AI Feature 2: Demand Forecasting":
                         bgcolor='rgba(255,255,255,0.95)', bordercolor=TM, borderwidth=1),
         )
         fig_emp_d.update_annotations(font=dict(color='#111111'))
-        fig_emp_d.update_yaxes(gridcolor='#e0e0e0', tickfont=dict(color='#111111'), title_font=dict(color='#111111'), tickfont=dict(color='#111111'), title_font=dict(color='#111111'))
+        fig_emp_d.update_yaxes(gridcolor='#e0e0e0', tickfont=dict(color='#111111'), title_font=dict(color='#111111'))
         fig_emp_d.update_xaxes(gridcolor='#e0e0e0', tickfont=dict(color='#111111'), title_font=dict(color='#111111'))
         st.plotly_chart(fig_emp_d, use_container_width=True)
         st.success(f"R² = {r2_val:.3f} — employment explains {r2_val*100:.1f}% of MARC ridership variance.")
