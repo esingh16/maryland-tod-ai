@@ -192,7 +192,7 @@ with st.sidebar:
         "⚠️ AI Feature 4: Conflict Detection",
     ])
     st.markdown("---")
-    st.markdown("**Datasets:** 12 Maryland gov datasets")
+    st.markdown("**Datasets:** 28 Maryland gov datasets")
     st.markdown("**AI:** K-Means · PCA · Monte Carlo · Cosine Similarity · Haversine")
 
 # ════════════════════════════════════════════════════════════════════
