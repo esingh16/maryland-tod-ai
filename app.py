@@ -175,7 +175,7 @@ def load_ontime():
 
 # ── Sidebar ────────────────────────────────────────────────────────────────
 with st.sidebar:
-    st.markdown('<div class="winner-badge">🏆 1st Place — UMD SAC Datathon 2026</div>',
+    st.markdown('<div class="winner-badge">UMD SAC Datathon 2026</div>',
                 unsafe_allow_html=True)
     st.markdown("### Maryland TOD AI Dashboard")
     st.markdown("*Transit-Oriented Development Strategy*")
@@ -203,7 +203,7 @@ if page == "🏠 Overview":
     st.subheader("AI-Powered Investment Strategy — UMD SAC 7th Annual Datathon 2026")
 
     c1, c2, c3, c4 = st.columns(4)
-    c1.metric("Result", "🏆 1st Place")
+    c1.metric("Result", "Won")
     c2.metric("Corridors Analyzed", "21")
     c3.metric("Datasets Used", "12")
     c4.metric("AI Models Built", "4")
