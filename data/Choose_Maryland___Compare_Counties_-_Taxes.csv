@@ -1,0 +1,29 @@
+County,Local Personal Income Tax Rate (%),Combined State and County Real Property Tax Rate ($ per hundred),County Business Personal Property Tax Rate ($ per hundred),Manufacturing/R&D Machinery and Equipment Exemption (%),Manufacturing/R&D Inventory Exemption (%),Commercial Inventory Exemption (%),Acreage in State Enterprise Zones
+Source,Comptroller of Maryland,Maryland Department of Assessments and Taxation,Maryland Department of Assessments and Taxation,Maryland Department of Assessments and Taxation,Maryland Department of Assessments and Taxation,Maryland Department of Assessments and Taxation,Maryland Department of Commerce
+Date of Data,Date of Data: 2020,Date of Data: FY 2020,Date of Data: FY 2020,Date of Data: FY 2020,Date of Data: FY 2020,Date of Data: FY 2020,Date of Data: June 2019
+Note,"Does not include graduated state personal income tax ranging from 2% on first $1,000 to 5.75% on taxable income over $300,000 (joint filers).","Rounded rate per $100 of assessed value.  Property is taxed on assessed value, and assessed at 100 percent of market value.  Includes $0.112 state rate and county rates for unincorporated areas.  County rates may be lower in incorporated areas, and municipal rates may apply.  Rates effective July 1, 2019 through June 30, 2020.","Rounded rate per $100 of depreciated value.  County rates are for unincorporated areas, and may be lower in incorporated areas. Municipal rates may apply.  Caroline, Dorchester, Frederick, Garrett, Kent, Queen Anne's, and Talbot counties do not impose personal property taxes on ordinary businesses. There is no state tax on business personal property. Rates effective July 1, 2019 through June 30, 2020.","Exemption from business personal property tax. All ordinary business personal property is 100% exempt in Caroline, Dorchester, Frederick, Garrett, Kent, Queen Annes and Talbot Counties. Upon application to a county that does not exempt 100 percent, a new or expanding firm may be eligible for a tax credit. Many municipalities also offer tax exemptions.","Exemption from business personal property tax.  All ordinary business personal property is 100% exempt in Caroline, Dorchester, Frederick, Garrett, Kent, Queen Anne's and Talbot Counties.  Many municipalities also offer tax exemptions.","Exemption from business personal property tax on commercial inventory for warehouse/distribution.  All ordinary business personal property is 100% exempt in Caroline, Dorchester, Frederick, Garrett, Kent, Queen Anne's and Talbot Counties.  Many municipalities also offer tax exemptions.","May include areas of water and/or land that are not suitable for development, including roadways or residential property. Baltimore City and Prince George's County zones also offer focus area credits. Some acreages are approximated."
+Quote,,,,,,,
+Allegany County,3.05%,$1.09,$2.44,100,100,100,8533
+Anne Arundel County,2.81,1.047,2.337,100,100,100,472
+Baltimore City,3.2,2.36,5.62,100,100,100,13453
+Baltimore County,3.2,1.212,2.75,100,100,100,8687
+Calvert County,3,1.049,2.23,100,100,100,
+Caroline County,3.2,1.092,0,100,100,100,1248
+Carroll County,3.03,1.13,2.515,100,100,100,
+Cecil County,3,1.1534,2.6035,100,100,100,6240
+Charles County,3.03,1.317,3.0125,100,100,100,
+Dorchester County,3.2,1.112,0,100,100,100,2319
+Frederick County,2.96,1.172,0,100,100,100,1896
+Garrett County,2.65,1.168,0,100,100,100,616
+Harford County,3.06,1.154,2.6049,100,100,100,14094
+Howard County,3.2,1.126,2.535,100,100,100,
+Kent County,3.2,1.134,0,100,100,100,1086
+Montgomery County,3.2,0.8286,1.7915,100,100,100,941
+Prince George's County,3.2,1.112,2.5,100,100,100,9385
+Queen Anne's County,3.2,0.9591,0,100,100,100,1349
+St. Mary's County,3.17,0.9598,2.1195,100,100,100,
+Somerset County,3.2,1.112,2.5,0,100,100,1931
+Talbot County,2.4,0.7492,0,100,100,100,410
+Washington County,3.2,1.06,2.37,100,100,100,5965
+Wicomico County,3.2,1.0466,2.1715,100,100,100,5352
+Worcester County,2.25,0.957,2.113,0,100,100,2354
