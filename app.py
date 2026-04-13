@@ -1298,7 +1298,7 @@ elif page == "⚠️ AI Feature 4: Conflict Detection":
                             table_data['aadt_fmt'], table_data['score_fmt'],
                             table_data['severity_label'],
                             table_data['mitigation_strategy'], table_data['cost_impact']],
-                    fill_color=cell_colors, font=dict(size=9), align='left', height=28,
+                    fill_color=cell_colors, font=dict(size=9, color='#111111'), align='left', height=28,
                 ),
             )])
             fig_table.update_layout(
