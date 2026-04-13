@@ -131,14 +131,11 @@ def load_aadt_points():
         if "Road" in c and "Name" in c:
             col_map[c] = "Road Name"
     df = df.rename(columns=col_map)
-    if "AADT Current" not in df.columns:
-        for c in df.columns:
-            if "AADT" in c and df[c].dtype in [np.float64, np.int64]:
-                df["AADT Current"] = pd.to_numeric(df[c], errors="coerce").fillna(0)
-                break
+    # "AADT Current" exists directly in this file
     if "AADT Current" not in df.columns:
         df["AADT Current"] = 0
-    df["AADT Current"] = pd.to_numeric(df["AADT Current"], errors="coerce").fillna(0)
+    else:
+        df["AADT Current"] = pd.to_numeric(df["AADT Current"], errors="coerce").fillna(0)
     if "Rural / Urban" not in df.columns:
         df["Rural / Urban"] = "Urban"
     if "County Name" not in df.columns:
@@ -200,7 +197,10 @@ def load_hospitals():
 @st.cache_data
 def load_ontime():
     df = pd.read_csv(DATA + "On_Time_Performance_20260327.csv")
-    df["Fiscal Year"] = pd.to_numeric(df["Fiscal Year"], errors="coerce")
+    df["Fiscal Year"] = pd.to_numeric(df["Fiscal Year"].astype(str).str.extract(r"(\d+)")[0], errors="coerce")
+    for c in ["MARC", "Metro", "Core Bus", "Light Rail", "Mobility/Taxi Access"]:
+        if c in df.columns:
+            df[c] = pd.to_numeric(df[c].astype(str).str.replace("%","").str.strip(), errors="coerce")
     return df
 
 # ── Sidebar ────────────────────────────────────────────────────────────────
@@ -283,7 +283,7 @@ if page == "🏠 Overview":
                 name=m, line=dict(color=colors_m[i], width=2.5), mode="lines+markers"))
         fig.update_layout(height=320, margin=dict(t=20, b=20),
                           plot_bgcolor=CRM, paper_bgcolor="white",
-                          font=dict(family="Arial", size=10),
+                          font=dict(family="Arial", size=10, color='#333333'),
                           yaxis_title="Trips/Revenue Mile",
                           legend=dict(orientation="h", y=1.1, x=0.5, xanchor="center"))
         st.plotly_chart(fig, use_container_width=True)
@@ -440,7 +440,7 @@ elif page == "🤖 AI Feature 1: Corridor Scoring":
                   '<sup>Weighted ML score across 12 features | Real MARC ridership data | Sphinx Loop top-ranked</sup>',
             barmode='stack', height=680,
             plot_bgcolor=CRM, paper_bgcolor='white',
-            font=dict(family='Arial', size=10),
+            font=dict(family='Arial', size=10, color='#333333'),
             xaxis=dict(title='AI Investment Score (0–100)', range=[0, 115], gridcolor='#e0e0e0'),
             yaxis=dict(tickfont=dict(size=9)),
             legend=dict(orientation='h', yanchor='bottom', y=1.02, xanchor='center', x=0.5,
@@ -461,7 +461,7 @@ elif page == "🤖 AI Feature 1: Corridor Scoring":
         fig_pca.update_traces(textposition='top center', textfont=dict(size=7))
         fig_pca.update_layout(
             height=540, plot_bgcolor=CRM, paper_bgcolor='white',
-            font=dict(family='Arial', size=11),
+            font=dict(family='Arial', size=11, color='#333333'),
             xaxis=dict(gridcolor='#e0e0e0'), yaxis=dict(gridcolor='#e0e0e0'),
             legend=dict(orientation='h', yanchor='bottom', y=1.04, xanchor='center', x=0.5,
                         bgcolor='rgba(255,252,232,0.9)', bordercolor=TM, borderwidth=1),
@@ -511,7 +511,7 @@ elif page == "🤖 AI Feature 1: Corridor Scoring":
         fig_eff.update_traces(textposition='top center', textfont=dict(size=7))
         fig_eff.update_layout(
             height=520, plot_bgcolor=CRM, paper_bgcolor='white',
-            font=dict(family='Arial', size=11),
+            font=dict(family='Arial', size=11, color='#333333'),
             xaxis=dict(title='Estimated Cost ($M)', gridcolor='#e0e0e0'),
             yaxis=dict(title='AI Score (0–100)', gridcolor='#e0e0e0'),
             legend=dict(orientation='h', yanchor='bottom', y=1.04, xanchor='center', x=0.5,
@@ -613,7 +613,7 @@ elif page == "📈 AI Feature 2: Demand Forecasting":
             title='<b>AI Ridership Forecast — MARC · Metro · Core Bus</b><br>'
                   '<sup>Polynomial regression | 95% CI shaded | Colors match network maps</sup>',
             height=440, plot_bgcolor=CRM, paper_bgcolor='white',
-            font=dict(family='Arial', size=10),
+            font=dict(family='Arial', size=10, color='#333333'),
             legend=dict(orientation='h', yanchor='bottom', y=1.04, xanchor='center', x=0.5,
                         bgcolor='rgba(255,252,232,0.9)', bordercolor=TM, borderwidth=1),
         )
@@ -669,7 +669,7 @@ elif page == "📈 AI Feature 2: Demand Forecasting":
             title=f'<b>Employment-Driven Demand Model — 2006–2035</b><br>'
                   f'<sup>Real BLS data | MARC R²={r2_val:.2f} | TOD adds ~3%/yr uplift</sup>',
             height=440, plot_bgcolor=CRM, paper_bgcolor='white',
-            font=dict(family='Arial', size=10),
+            font=dict(family='Arial', size=10, color='#333333'),
             legend=dict(orientation='h', yanchor='bottom', y=1.04, xanchor='center', x=0.5,
                         bgcolor='rgba(255,252,232,0.9)', bordercolor=TM, borderwidth=1),
         )
@@ -722,7 +722,7 @@ elif page == "📈 AI Feature 2: Demand Forecasting":
             title=f'<b>Monte Carlo Financial Risk Model — {N:,} Scenarios</b><br>'
                   f'<sup>Median Yr5: ${p50:.0f}M | 90% CI: ${p5:.0f}M–${p95:.0f}M | Sphinx Loop premium included</sup>',
             height=440, plot_bgcolor=CRM, paper_bgcolor='white',
-            font=dict(family='Arial', size=11), showlegend=False,
+            font=dict(family='Arial', size=11, color='#333333'), showlegend=False,
         )
         fig_mc.update_xaxes(gridcolor='#e0e0e0')
         fig_mc.update_yaxes(gridcolor='#e0e0e0')
@@ -758,7 +758,7 @@ elif page == "📈 AI Feature 2: Demand Forecasting":
             xaxis=dict(title='Month of Operation', gridcolor='#e0e0e0', dtick=3),
             yaxis=dict(title='Daily New Riders', gridcolor='#e0e0e0', tickformat=','),
             height=440, plot_bgcolor=CRM, paper_bgcolor='white',
-            font=dict(family='Arial', size=12),
+            font=dict(family='Arial', size=12, color='#333333'),
             legend=dict(orientation='h', yanchor='bottom', y=1.04, xanchor='center', x=0.5,
                         bgcolor='rgba(255,252,232,0.9)', bordercolor=TM, borderwidth=1),
             hovermode='x unified',
@@ -879,7 +879,7 @@ elif page == "⚖️ AI Feature 3: Equity Recommender":
             barmode='stack', height=640,
             xaxis=dict(title='Equity Impact Score (0–100)', range=[0, 115], gridcolor='#e0e0e0'),
             plot_bgcolor=CRM, paper_bgcolor='white',
-            font=dict(family='Arial', size=11),
+            font=dict(family='Arial', size=11, color='#333333'),
             legend=dict(orientation='h', yanchor='bottom', y=1.02, xanchor='center', x=0.5,
                         bgcolor='rgba(255,252,232,0.9)', bordercolor=TM, borderwidth=1),
             margin=dict(l=180, r=80),
@@ -942,7 +942,7 @@ elif page == "⚖️ AI Feature 3: Equity Recommender":
         fig_quad.update_traces(textposition='top center', textfont=dict(size=9))
         fig_quad.update_layout(
             height=540, plot_bgcolor=CRM, paper_bgcolor='white',
-            font=dict(family='Arial', size=11),
+            font=dict(family='Arial', size=11, color='#333333'),
             xaxis=dict(tickformat='.0%', gridcolor='#e0e0e0'),
             yaxis=dict(tickformat='.0%', gridcolor='#e0e0e0'),
             legend=dict(orientation='h', yanchor='bottom', y=1.04, xanchor='center', x=0.5,
@@ -1244,7 +1244,7 @@ elif page == "⚠️ AI Feature 4: Conflict Detection":
             xaxis=dict(title='Project Month', dtick=6, gridcolor='#f0f0f0'),
             yaxis=dict(title='Aggregate Risk Score', gridcolor='#f0f0f0', range=[0, 10]),
             height=440, plot_bgcolor='white', paper_bgcolor='white',
-            font=dict(family='Arial', size=12), showlegend=False,
+            font=dict(family='Arial', size=12, color='#333333'), showlegend=False,
         )
         st.plotly_chart(fig_timeline, use_container_width=True)
 
@@ -1279,7 +1279,7 @@ elif page == "⚠️ AI Feature 4: Conflict Detection":
             )])
             fig_table.update_layout(
                 title='<b>🤖 AI-Generated Mitigation Action Plan — Top 15 Conflicts</b>',
-                height=520, font=dict(family='Arial'),
+                height=520, font=dict(family='Arial', color='#333333'),
             )
             st.plotly_chart(fig_table, use_container_width=True)
         else:
@@ -1318,6 +1318,6 @@ elif page == "⚠️ AI Feature 4: Conflict Detection":
         fig_gauge.update_layout(
             title='<b>🤖 Agent Route Ease Score — Higher = Fewer Conflicts</b><br>'
                   '<sup>Green zone (70+) = proceed | Yellow = mitigate | Red = redesign</sup>',
-            height=300, font=dict(family='Arial', size=10),
+            height=300, font=dict(family='Arial', size=10, color='#333333'),
         )
         st.plotly_chart(fig_gauge, use_container_width=True)
