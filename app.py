@@ -72,7 +72,7 @@ def parse_multipoly_centroid(geom):
     return None, None
 
 # ── Data loading (cached) ──────────────────────────────────────────────────
-DATA = "./"
+DATA = "data/"
 
 @st.cache_data
 def load_marc():
@@ -97,7 +97,7 @@ def load_qcew():
 
 @st.cache_data
 def load_emp_sector():
-    df = pd.read_csv(DATA + "2006_to_2025_employment_by_sector.csv")
+    df = pd.read_csv(DATA + "2006 to 2025 employment by sector.csv")
     date_cols = [c for c in df.columns if c != "Series title"]
     emp_long = df.melt(id_vars="Series title", value_vars=date_cols,
                        var_name="Date", value_name="Value")
@@ -754,7 +754,7 @@ elif page == "⚠️ AI Feature 4: Conflict Detection":
     with st.spinner("Running conflict detection agent on 8,773 MDOT records..."):
         # Load AADT with geometry
         aadt_raw = pd.read_csv(
-            "/mnt/user-data/uploads/MDOT_SHA_Annual_Average_Daily_Traffic_-8143831022206424813.csv",
+            "data/MDOT_SHA_Annual_Average_Daily_Traffic_-8143831022206424813.csv",
             low_memory=False,
             usecols=lambda c: c in ["County Name","Road Name","AADT (Current)","Rural / Urban",
                                      "Latitude","Longitude","the_geom","GIS Object ID"]
