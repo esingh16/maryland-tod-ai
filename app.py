@@ -1214,7 +1214,7 @@ elif page == "⚠️ AI Feature 4: Conflict Detection":
             xaxis=dict(title='Project Month', dtick=6, gridcolor='#f0f0f0'),
             yaxis=dict(title='Aggregate Risk Score', gridcolor='#f0f0f0', range=[0, 10]),
             height=440, plot_bgcolor='#f5f5f5', paper_bgcolor='white',
-            font=dict(family='Arial', size=12, color='#222222', color='#222222'), showlegend=False,
+            font=dict(family='Arial', size=12, color='#222222'), showlegend=False,
         )
         st.plotly_chart(fig_timeline, use_container_width=True)
 
@@ -1288,6 +1288,6 @@ elif page == "⚠️ AI Feature 4: Conflict Detection":
         fig_gauge.update_layout(
             title='<b>🤖 Agent Route Ease Score — Higher = Fewer Conflicts</b><br>'
                   '<sup>Green zone (70+) = proceed | Yellow = mitigate | Red = redesign</sup>',
-            height=320, paper_bgcolor='white', font=dict(family='Arial', size=10, color='#222222', color='#222222'),
+            height=320, paper_bgcolor='white', font=dict(family='Arial', size=10, color='#222222'),
         )
         st.plotly_chart(fig_gauge, use_container_width=True)
