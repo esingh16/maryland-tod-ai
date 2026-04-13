@@ -175,13 +175,13 @@ def load_ontime():
 
 # ── Sidebar ────────────────────────────────────────────────────────────────
 with st.sidebar:
-    st.markdown('<div class="winner-badge">🏆 UMD SAC Datathon 2026</div>',
+    st.markdown('<div class="winner-badge">🏆 1st Place — UMD SAC Datathon 2026</div>',
                 unsafe_allow_html=True)
     st.markdown("### Maryland TOD AI Dashboard")
     st.markdown("*Transit-Oriented Development Strategy*")
     st.markdown("---")
     st.markdown("**Sponsor:** Maryland DoIT + Deloitte")
-    st.markdown("**Team:** SPHIN")
+    st.markdown("**Team:** Eshan & Team")
     st.markdown("**Date:** March 27, 2026")
     st.markdown("---")
     page = st.radio("Navigate to:", [
@@ -203,7 +203,7 @@ if page == "🏠 Overview":
     st.subheader("AI-Powered Investment Strategy — UMD SAC 7th Annual Datathon 2026")
 
     c1, c2, c3, c4 = st.columns(4)
-    c1.metric("Result", "🏆Winner")
+    c1.metric("Result", "🏆 1st Place")
     c2.metric("Corridors Analyzed", "21")
     c3.metric("Datasets Used", "12")
     c4.metric("AI Models Built", "4")
@@ -256,6 +256,9 @@ if page == "🏠 Overview":
                           font=dict(family="Arial", size=10, color='#111111'),
                           yaxis_title="Trips/Revenue Mile",
                           legend=dict(orientation="h", y=1.1, x=0.5, xanchor="center"))
+        fig.update_xaxes(tickfont=dict(color='#111111', size=10), title_font=dict(color='#111111'))
+        fig.update_yaxes(tickfont=dict(color='#111111', size=10), title_font=dict(color='#111111'))
+        fig.update_layout(legend=dict(font=dict(color='#111111', size=10)))
         st.plotly_chart(fig, use_container_width=True)
 
     st.markdown("---")
@@ -271,6 +274,9 @@ if page == "🏠 Overview":
                        font=dict(family='Arial', size=10, color='#111111'),
                        yaxis_title="On-Time %", margin=dict(t=20, b=20),
                        legend=dict(orientation="h", y=1.1, x=0.5, xanchor="center"))
+    fig2.update_xaxes(tickfont=dict(color="#111111", size=10), title_font=dict(color="#111111"))
+    fig2.update_yaxes(tickfont=dict(color="#111111", size=10), title_font=dict(color="#111111"))
+    fig2.update_layout(legend=dict(font=dict(color="#111111", size=10)))
     st.plotly_chart(fig2, use_container_width=True)
 
 # ════════════════════════════════════════════════════════════════════
@@ -417,6 +423,9 @@ elif page == "🤖 AI Feature 1: Corridor Scoring":
                         bgcolor='rgba(255,255,255,0.95)', bordercolor=TM, borderwidth=1),
             margin=dict(l=260, r=60),
         )
+        fig_rank.update_xaxes(tickfont=dict(color='#111111', size=10), title_font=dict(color='#111111'))
+        fig_rank.update_yaxes(tickfont=dict(color='#111111', size=10), title_font=dict(color='#111111'))
+        fig_rank.update_layout(legend=dict(font=dict(color='#111111', size=10)))
         st.plotly_chart(fig_rank, use_container_width=True)
 
     with tab2:
@@ -436,6 +445,9 @@ elif page == "🤖 AI Feature 1: Corridor Scoring":
             legend=dict(orientation='h', yanchor='bottom', y=1.04, xanchor='center', x=0.5,
                         bgcolor='rgba(255,255,255,0.95)', bordercolor=TM, borderwidth=1),
         )
+        fig_pca.update_xaxes(tickfont=dict(color='#111111', size=10), title_font=dict(color='#111111'))
+        fig_pca.update_yaxes(tickfont=dict(color='#111111', size=10), title_font=dict(color='#111111'))
+        fig_pca.update_layout(legend=dict(font=dict(color='#111111', size=10)))
         st.plotly_chart(fig_pca, use_container_width=True)
 
     with tab3:
@@ -468,6 +480,9 @@ elif page == "🤖 AI Feature 1: Corridor Scoring":
             height=500, paper_bgcolor='white', font=dict(family='Arial', size=11, color='#111111'),
             legend=dict(orientation='h', yanchor='bottom', y=-0.08, xanchor='center', x=0.5),
         )
+        fig_radar.update_xaxes(tickfont=dict(color='#111111', size=10), title_font=dict(color='#111111'))
+        fig_radar.update_yaxes(tickfont=dict(color='#111111', size=10), title_font=dict(color='#111111'))
+        fig_radar.update_layout(legend=dict(font=dict(color='#111111', size=10)))
         st.plotly_chart(fig_radar, use_container_width=True)
 
     with tab4:
@@ -487,6 +502,9 @@ elif page == "🤖 AI Feature 1: Corridor Scoring":
             legend=dict(orientation='h', yanchor='bottom', y=1.04, xanchor='center', x=0.5,
                         bgcolor='rgba(255,255,255,0.95)', bordercolor=TM, borderwidth=1),
         )
+        fig_eff.update_xaxes(tickfont=dict(color='#111111', size=10), title_font=dict(color='#111111'))
+        fig_eff.update_yaxes(tickfont=dict(color='#111111', size=10), title_font=dict(color='#111111'))
+        fig_eff.update_layout(legend=dict(font=dict(color='#111111', size=10)))
         st.plotly_chart(fig_eff, use_container_width=True)
 
 # ════════════════════════════════════════════════════════════════════
@@ -592,6 +610,9 @@ elif page == "📈 AI Feature 2: Demand Forecasting":
         fig_fc.update_annotations(font=dict(color='#111111'))
         fig_fc.update_xaxes(gridcolor='#e0e0e0', tickfont=dict(color='#111111'), title_font=dict(color='#111111'), dtick=2)
         fig_fc.update_yaxes(gridcolor='#e0e0e0', tickfont=dict(color='#111111'), title_font=dict(color='#111111'))
+        fig_fc.update_xaxes(tickfont=dict(color='#111111', size=10), title_font=dict(color='#111111'))
+        fig_fc.update_yaxes(tickfont=dict(color='#111111', size=10), title_font=dict(color='#111111'))
+        fig_fc.update_layout(legend=dict(font=dict(color='#111111', size=10)))
         st.plotly_chart(fig_fc, use_container_width=True)
 
     with tab2:
@@ -651,6 +672,9 @@ elif page == "📈 AI Feature 2: Demand Forecasting":
         fig_emp_d.update_annotations(font=dict(color='#111111'))
         fig_emp_d.update_yaxes(gridcolor='#e0e0e0', tickfont=dict(color='#111111'), title_font=dict(color='#111111'))
         fig_emp_d.update_xaxes(gridcolor='#e0e0e0', tickfont=dict(color='#111111'), title_font=dict(color='#111111'))
+        fig_emp_d.update_xaxes(tickfont=dict(color='#111111', size=10), title_font=dict(color='#111111'))
+        fig_emp_d.update_yaxes(tickfont=dict(color='#111111', size=10), title_font=dict(color='#111111'))
+        fig_emp_d.update_layout(legend=dict(font=dict(color='#111111', size=10)))
         st.plotly_chart(fig_emp_d, use_container_width=True)
         st.success(f"R² = {r2_val:.3f} — employment explains {r2_val*100:.1f}% of MARC ridership variance.")
 
@@ -702,6 +726,9 @@ elif page == "📈 AI Feature 2: Demand Forecasting":
         )
         fig_mc.update_xaxes(gridcolor='#e0e0e0', tickfont=dict(color='#111111'), title_font=dict(color='#111111'))
         fig_mc.update_yaxes(gridcolor='#e0e0e0', tickfont=dict(color='#111111'), title_font=dict(color='#111111'))
+        fig_mc.update_xaxes(tickfont=dict(color='#111111', size=10), title_font=dict(color='#111111'))
+        fig_mc.update_yaxes(tickfont=dict(color='#111111', size=10), title_font=dict(color='#111111'))
+        fig_mc.update_layout(legend=dict(font=dict(color='#111111', size=10)))
         st.plotly_chart(fig_mc, use_container_width=True)
 
     with tab4:
@@ -739,6 +766,9 @@ elif page == "📈 AI Feature 2: Demand Forecasting":
                         bgcolor='rgba(255,255,255,0.95)', bordercolor=TM, borderwidth=1),
             hovermode='x unified',
         )
+        fig_fan.update_xaxes(tickfont=dict(color='#111111', size=10), title_font=dict(color='#111111'))
+        fig_fan.update_yaxes(tickfont=dict(color='#111111', size=10), title_font=dict(color='#111111'))
+        fig_fan.update_layout(legend=dict(font=dict(color='#111111', size=10)))
         st.plotly_chart(fig_fan, use_container_width=True)
 
 # ════════════════════════════════════════════════════════════════════
@@ -860,6 +890,9 @@ elif page == "⚖️ AI Feature 3: Equity Recommender":
                         bgcolor='rgba(255,255,255,0.95)', bordercolor=TM, borderwidth=1),
             margin=dict(l=180, r=80),
         )
+        fig_eq_bar.update_xaxes(tickfont=dict(color='#111111', size=10), title_font=dict(color='#111111'))
+        fig_eq_bar.update_yaxes(tickfont=dict(color='#111111', size=10), title_font=dict(color='#111111'))
+        fig_eq_bar.update_layout(legend=dict(font=dict(color='#111111', size=10)))
         st.plotly_chart(fig_eq_bar, use_container_width=True)
         disp = cs_clean[['County', 'combined_score', 'recommendation', 'service_job_pct', 'growth_rate']].copy()
         disp.columns = ['County', 'Equity Score', 'Recommendation', 'Service Job %', 'Growth Rate']
@@ -897,6 +930,9 @@ elif page == "⚖️ AI Feature 3: Equity Recommender":
             legend=dict(orientation='h', yanchor='bottom', y=1.04, xanchor='center', x=0.5,
                         bgcolor='rgba(255,255,255,0.95)', bordercolor=TM, borderwidth=1),
         )
+        fig_sec.update_xaxes(tickfont=dict(color='#111111', size=10), title_font=dict(color='#111111'))
+        fig_sec.update_yaxes(tickfont=dict(color='#111111', size=10), title_font=dict(color='#111111'))
+        fig_sec.update_layout(legend=dict(font=dict(color='#111111', size=10)))
         st.plotly_chart(fig_sec, use_container_width=True)
 
     with tab3:
@@ -924,6 +960,9 @@ elif page == "⚖️ AI Feature 3: Equity Recommender":
             legend=dict(orientation='h', yanchor='bottom', y=1.04, xanchor='center', x=0.5,
                         bgcolor='rgba(255,255,255,0.95)', bordercolor=TM, borderwidth=1),
         )
+        fig_quad.update_xaxes(tickfont=dict(color='#111111', size=10), title_font=dict(color='#111111'))
+        fig_quad.update_yaxes(tickfont=dict(color='#111111', size=10), title_font=dict(color='#111111'))
+        fig_quad.update_layout(legend=dict(font=dict(color='#111111', size=10)))
         st.plotly_chart(fig_quad, use_container_width=True)
 
     with tab4:
@@ -1135,6 +1174,9 @@ elif page == "⚠️ AI Feature 4: Conflict Detection":
             font=dict(family='Arial', size=12, color='#111111'),
             legend=dict(orientation='h', yanchor='top', y=-0.15, xanchor='center', x=0.5),
         )
+        fig_conf.update_xaxes(tickfont=dict(color='#111111', size=10), title_font=dict(color='#111111'))
+        fig_conf.update_yaxes(tickfont=dict(color='#111111', size=10), title_font=dict(color='#111111'))
+        fig_conf.update_layout(legend=dict(font=dict(color='#111111', size=10)))
         st.plotly_chart(fig_conf, use_container_width=True)
         if n > 0:
             fig2 = px.scatter(conflicts_df, x='aadt', y='conflict_score',
@@ -1144,6 +1186,9 @@ elif page == "⚠️ AI Feature 4: Conflict Detection":
                               labels={'aadt':'AADT (vehicles/day)','conflict_score':'Conflict Score'})
             fig2.update_layout(height=380, plot_bgcolor='white', paper_bgcolor='white',
                                font=dict(family='Arial', size=11))
+            fig2.update_xaxes(tickfont=dict(color="#111111", size=10), title_font=dict(color="#111111"))
+            fig2.update_yaxes(tickfont=dict(color="#111111", size=10), title_font=dict(color="#111111"))
+            fig2.update_layout(legend=dict(font=dict(color="#111111", size=10)))
             st.plotly_chart(fig2, use_container_width=True)
 
     with tab2:
@@ -1222,6 +1267,9 @@ elif page == "⚠️ AI Feature 4: Conflict Detection":
             height=440, plot_bgcolor='#f5f5f5', paper_bgcolor='white',
             font=dict(family='Arial', size=12, color='#111111'), showlegend=False,
         )
+        fig_timeline.update_xaxes(tickfont=dict(color='#111111', size=10), title_font=dict(color='#111111'))
+        fig_timeline.update_yaxes(tickfont=dict(color='#111111', size=10), title_font=dict(color='#111111'))
+        fig_timeline.update_layout(legend=dict(font=dict(color='#111111', size=10)))
         st.plotly_chart(fig_timeline, use_container_width=True)
 
     with tab4:
@@ -1257,6 +1305,9 @@ elif page == "⚠️ AI Feature 4: Conflict Detection":
                 title='<b>🤖 AI-Generated Mitigation Action Plan — Top 15 Conflicts</b>',
                 height=520, paper_bgcolor='white', font=dict(family='Arial', color='#111111'),
             )
+            fig_table.update_xaxes(tickfont=dict(color='#111111', size=10), title_font=dict(color='#111111'))
+            fig_table.update_yaxes(tickfont=dict(color='#111111', size=10), title_font=dict(color='#111111'))
+            fig_table.update_layout(legend=dict(font=dict(color='#111111', size=10)))
             st.plotly_chart(fig_table, use_container_width=True)
         else:
             st.info("No conflict data detected. Try increasing radius_km or check that AADT points file has coordinates.")
@@ -1296,4 +1347,7 @@ elif page == "⚠️ AI Feature 4: Conflict Detection":
                   '<sup>Green zone (70+) = proceed | Yellow = mitigate | Red = redesign</sup>',
             height=320, paper_bgcolor='white', font=dict(family='Arial', size=10, color='#111111'),
         )
+        fig_gauge.update_xaxes(tickfont=dict(color='#111111', size=10), title_font=dict(color='#111111'))
+        fig_gauge.update_yaxes(tickfont=dict(color='#111111', size=10), title_font=dict(color='#111111'))
+        fig_gauge.update_layout(legend=dict(font=dict(color='#111111', size=10)))
         st.plotly_chart(fig_gauge, use_container_width=True)
