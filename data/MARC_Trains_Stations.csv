@@ -1,0 +1,45 @@
+the_geom,GIS Object ID,Stop ID,Stop Name,Stop Address,City,State,Zip Code,Transit Mode,Line Name,Facility Type,Average Weekday Ridership,Average Weekend Ridership
+POINT (-77.006164669934 38.897807215019),101,13,Union Station MARC Station,"50 Massachusetts Ave., NE",Washington,DC,20002,MARC Penn,Penn,Station,5153,0
+POINT (-76.07374686816 39.557981240595),94,6,Perryville MARC Station,650 Broad Street,Perryville,MD,21903,MARC Penn,Penn,Station,84,0
+POINT (-76.7039448308 39.224297206819),111,23,St. Denis MARC Station,1734 Arlington Ave.,Halethorpe,MD,21227,MARC Camden,Camden,Station,5,0
+POINT (-76.745480222914 39.180986074828),109,21,Dorsey MARC Station,7000 Deerpath Rd.,Dorsey,MD,21075,MARC Camden,Camden,Station,222,0
+POINT (-77.960594965499 39.458635962419),115,27,Martinsburg MARC Station,226 E. Martin St.,Martinsburg,WV,25401,MARC Brunswick,Brunswick,Station,63,0
+POINT (-77.146100721464 39.084311920581),125,37,Rockville MARC Station,307 Stonestreet Avenue,Rockville,MD,20850,MARC Brunswick,Brunswick,Station,198,0
+POINT (-77.422173532084 39.219998879924),119,31,Dickerson MARC Station,22211 Mt. Ephraim Rd.,Dickerson,MD,20842,MARC Brunswick,Brunswick,Station,8,0
+POINT (-77.006164669934 38.897807215019),113,25,Union Station MARC Station,"50 Massachusetts Ave., NE",Washington,DC,20002,MARC Camden,Camden,Station,775,0
+POINT (-77.006173443779 38.897810642151),131,43,Union Station MARC Station,"50 Massachusetts Ave., NE",Washington,DC,20002,MARC Brunswick,Brunswick,Station,1094,0
+POINT (-76.292723861554 39.415937017208),89,1,Edgewood MARC Station,2127 Old Edgewood Road,Edgewood,MD,21040,MARC Penn,Penn,Station,148,0
+POINT (-77.73116538297 39.324649650935),132,44,Harpers Ferry MARC Station,120 Potomac St.,Harper's Ferry,WV,25425,MARC Brunswick,Brunswick,Station,28,0
+POINT (-76.61953088556 39.283163596893),112,24,Camden MARC Station,301 W. Camden St.,Baltimore,MD,21230,MARC Camden,Camden,Station,219,0
+POINT (-76.928742507484 38.977937462343),110,22,College Park MARC Station,7202 Bowdoin Ave.,College Park,MD,20740,MARC Camden,Camden,Station,85,0
+POINT (-77.827915139219 39.362068964749),114,26,Duffields MARC Station,5057 Flowing Springs Rd.,Duffields,WV,25414,MARC Brunswick,Brunswick,Station,61,0
+POINT (-77.030434297658 38.993189041031),126,38,Silver Spring MARC Station,1170 Bonifant St.,Silver Spring,MD,20910,MARC Brunswick,Brunswick,Station,199,0
+POINT (-76.776403689914 39.151522304479),102,14,Jessup MARC Station,8 Old Jessup Rd.,Jessup,MD,20794,MARC Camden,Camden,Station,0,0
+POINT (-77.39458400775 39.381875101563),129,41,Monocacy MARC Station,7800 Genstar Dr.,Frederick,MD,21703,MARC Brunswick,Brunswick,Station,99,0
+POINT (-77.192941223185 39.14153019963),120,32,Gaithersburg MARC Station,5 S. Summit Avenue,Gaithersburg,MD,20877,MARC Brunswick,Brunswick,Station,132,0
+POINT (-77.627979272271 39.311492331138),118,30,Brunswick MARC Station,100 South Maple Ave,Brunswick,MD,21716,MARC Brunswick,Brunswick,Station,185,0
+POINT (-76.163201165238 39.508412465749),99,11,Aberdeen MARC Station,18 E. Bel Air Avenue,Aberdeen,MD,21001,MARC Penn,Penn,Station,110,0
+POINT (-76.691244946081 39.238569839404),98,10,Halethorpe MARC Station,5833 Southwestern Blvd.,Baltimore,MD,21227,MARC Penn,Penn,Station,646,0
+POINT (-76.872308810607 38.948139240561),100,12,New Carrollton MARC Station,4300 Garden City Drive,New Carrollton,MD,20785,MARC Penn,Penn,Station,509,0
+POINT (-76.884203957544 39.062860976095),105,17,Muirkirk MARC Station,7012 Muirkirk Road,Beltsville,MD,20705,MARC Camden,Camden,Station,154,0
+POINT (-77.177730634383 39.136452381957),127,39,Washington Grove MARC Station,100 Railroad St.,Gaithersburg,MD,20877,MARC Brunswick,Brunswick,Station,11,0
+POINT (-76.843518935831 38.973058871712),95,7,Seabrook MARC Station,6221 Seabrook Rd.,Lanham,MD,20706,MARC Penn,Penn,Station,140,0
+POINT (-77.071753383536 39.026876395933),122,34,Kensington MARC Station,3701 Howard Ave.,Kensington,MD,20902,MARC Brunswick,Brunswick,Station,109,0
+POINT (-76.764982462679 39.017785777497),96,8,Bowie State University MARC Station,13900 Old Jericho Park Rd.,Bowie,MD,20715,MARC Penn,Penn,Station,338,0
+POINT (-76.61557770632 39.307461550045),97,9,Pennsylvania Station MARC Station,1500 N. Charles Street,Baltimore,MD,21202,MARC Penn,Penn,Station,1988,0
+POINT (-77.270624428869 39.173325581776),121,33,Germantown MARC Station,19320 Matney Hill Road,Germantown,MD,20875,MARC Brunswick,Brunswick,Station,297,0
+POINT (-77.533380655039 39.27345820916),124,36,Point of Rocks MARC Station,4000 Clay St.,Point of Rocks,MD,21777,MARC Brunswick,Brunswick,Station,157,0
+POINT (-77.404975357834 39.411484902728),130,42,Frederick MARC Station,100 South East St.,Frederick,MD,21704,MARC Brunswick,Brunswick,Station,59,0
+POINT (-77.38262678543 39.2097885878),116,28,Barnesville MARC Station,8 Beallsville Road,Barnesville,MD,20842,MARC Brunswick,Brunswick,Station,45,0
+POINT (-77.314276329946 39.184246706622),117,29,Boyds MARC Station,15031 Clopper Rd.,Boyds,MD,20841,MARC Brunswick,Brunswick,Station,11,0
+POINT (-76.653268543478 39.293305949132),91,3,West Baltimore MARC Station,400 N. Smallwood St.,Baltimore,MD,21223,MARC Penn,Penn,Station,432,0
+POINT (-76.796325370153 39.122921853214),106,18,Savage MARC Station,9009 Dorsey Run Road,Savage,MD,20701,MARC Camden,Camden,Station,160,0
+POINT (-76.84181210535 39.10220199051),104,16,Laurel MARC Station,22 Main Street,Laurel,MD,20707,MARC Camden,Camden,Station,204,0
+POINT (-76.934943793486 38.962996055196),107,19,Riverdale MARC Station,6200 Rhode Island Ave.,Riverdale,MD,20737,MARC Camden,Camden,Station,55,0
+POINT (-76.706283699745 39.087142711112),93,5,Odenton MARC Station,1400 Odenton Road,Odenton,MD,21113,MARC Penn,Penn,Station,1401,0
+POINT (-76.69453879514 39.192306701165),92,4,BWI Airport MARC Station,2 Amtrak Way,Linthicum,MD,21240,MARC Penn,Penn,Station,947,0
+POINT (-77.226733613656 39.149677102123),123,35,Metro Grove MARC Station,2 Metropolitan Ct.,Gaithersburg,MD,20885,MARC Brunswick,Brunswick,Station,85,0
+POINT (-77.093509631995 39.038966871663),128,40,Garrett Park MARC Station,11015 Rokeby Ave.,Garrett Park,MD,20852,MARC Brunswick,Brunswick,Station,21,0
+POINT (-76.912587132651 39.009937593065),108,20,Greenbelt MARC Station,5600 Greenbelt Metro Drive,Greenbelt,MD,20770,MARC Camden,Camden,Station,34,0
+POINT (-76.834003596761 39.105649350974),103,15,Laurel Race Track MARC Station,Laurel Race Track Rd.,Laurel,MD,20725,MARC Camden,Camden,Station,0,0
+POINT (-76.419342821087 39.338449562144),90,2,Martin Airport MARC Station,2710 Eastern Blvd.,Middle River,MD,21220,MARC Penn,Penn,Station,214,0
